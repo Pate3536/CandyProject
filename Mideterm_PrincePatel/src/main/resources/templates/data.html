@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Data page</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color:pink;">
+
+<div class="container">
+	<table class="table table-striped">
+		<tr>
+			<th>ID</th>
+			<th>Quentity</th>
+			<th>Category</th>
+			<th>BrandName</th>
+			<th>Description</th>
+			<th>ExpiryDate</th>
+		</tr>
+
+		<tr th:each="c : ${candyList}">
+			<td th:text="${c.id}"></td>
+			<td th:text="${c.quentity}"></td>
+			<td th:text="${c.category}"></td>
+			<td th:text="${c.brandName}"></td>
+			<td th:text="${c.discription}"></td>
+			<td th:text="${c.expiryDate}"></td>
+			<td><a th:href="@{/editCandyById/} + ${c.id}">Edit</a></td>
+			<td><a th:href="@{/deleteCandyById/} + ${c.id}">Delete</a></td>
+
+		</tr>
+
+	</table>
+	<span><a href="#" th:href="@{/}">Back to Index Page</a></span>
+	</div>
+
+
+</body>
+</html>
